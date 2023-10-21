@@ -13,10 +13,10 @@ export async function POST(req: Request): Promise<Response> {
   // Check if the OPENAI_API_KEY is set, if not return 400
   if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === "") {
     return new Response(
-      "Missing OPENAI_API_KEY – make sure to add it to your .env file.",
+      "Missing OPENAI_API_KEY - make sure to add it to your .env file.",
       {
         status: 400,
-      },
+      }
     );
   }
   const { prompt } = await req.json();
@@ -26,8 +26,7 @@ export async function POST(req: Request): Promise<Response> {
     messages: [
       {
         role: "system",
-        content:
-`Tu eres el responsable de seleccion de personas para optar a una beca del grado universitario LEINN (liderazgo, innovacion y emprendiento).
+        content: `Tu eres el responsable de seleccion de personas para optar a una beca del grado universitario LEINN (liderazgo, innovacion y emprendiento).
 A continuacion vas a recibir una serie de preguntas y la respuesta de uno de los usuarios. 
 Ademas si la persona que responda a las preguntas es mujer debera tener una ventaja en la puntuacion.
 Deberas darle una nota del 1 al 10 en las siguiente cualidades:
@@ -39,7 +38,7 @@ Deberas darle una nota del 1 al 10 en las siguiente cualidades:
 - Compromiso
 - Resilencia
 El resultado a tu analisis lo quiero en un array objetos de Javascript con las siguientes propiedades: skill, value
-`
+`,
       },
       {
         role: "user",

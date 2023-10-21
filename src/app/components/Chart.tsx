@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { JsonValue } from '@prisma/client/runtime/library';
+import { JsonValue } from "@prisma/client/runtime/library";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -9,8 +9,8 @@ import {
   Filler,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Radar } from 'react-chartjs-2';
+} from "chart.js";
+import { Radar } from "react-chartjs-2";
 
 ChartJS.register(
   RadialLinearScale,
@@ -22,64 +22,62 @@ ChartJS.register(
 );
 
 export const data = {
-  labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
+  labels: ["Thing 1", "Thing 2", "Thing 3", "Thing 4", "Thing 5", "Thing 6"],
   datasets: [
     {
-      label: '# of Votes',
+      label: "# of Votes",
       data: [2, 9, 3, 5, 2, 3],
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgba(255, 99, 132, 1)',
+      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "rgba(255, 99, 132, 1)",
       borderWidth: 1,
     },
   ],
 };
 
-export default function Chart({ stats }:{
+export default function StatCharts({
+  stats,
+}: {
   stats: {
-    stats: JsonValue
-  }
+    stats: JsonValue;
+  };
 }) {
-  const keysArray = stats ? Object.keys(stats) : [
-    "Liderazgo",
-    "Innovación",
-    "Emprendimiento",
-    "Trabajo en equipo",
-    "Ser buena persona",
-    "Compromiso",
-    "Resilencia",
-  ];
-  const valuesArray = stats ? Object.values(stats) : [
-    8,
-    9,
-    10,
-    7,
-    8,
-    8,
-    9
-  ];
+  const keysArray = stats
+    ? Object.keys(stats)
+    : [
+        "Liderazgo",
+        "Innovación",
+        "Emprendimiento",
+        "Trabajo en equipo",
+        "Ser buena persona",
+        "Compromiso",
+        "Resilencia",
+      ];
+  const valuesArray = stats ? Object.values(stats) : [8, 9, 10, 7, 8, 8, 9];
 
   const data = {
     labels: keysArray,
     datasets: [
       {
-        label: 'Puntuación',
+        label: "Puntuación",
         data: valuesArray,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgba(255, 99, 132, 1)",
         borderWidth: 1,
       },
     ],
     options: {
-      scales: {
-        
-      }
-    }
+      scales: {},
+    },
   };
 
-  return (<div style={{
-      width: "700px",
-      height: "700px"
-  }}>
-    <Radar data={data} />;
-  </div>)
+  return (
+    <div
+      style={{
+        width: "700px",
+        height: "700px",
+      }}
+    >
+      <Radar data={data} />;
+    </div>
+  );
 }

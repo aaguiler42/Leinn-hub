@@ -17,7 +17,7 @@ enum UserState {
 
 model User {
   id       Int       @id @default(autoincrement())
-  clerckId String    @unique
+  clerkId String    @unique
   State    UserState @default(Unaccepted)
 }
 

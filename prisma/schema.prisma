@@ -17,8 +17,12 @@ enum UserState {
 
 model User {
   id       Int       @id @default(autoincrement())
-  clerkId String    @unique
+  clerkId  String    @unique
   State    UserState @default(Unaccepted)
+  name     String
+  email    String    @unique
+  gender   String
+  stats    Json?
 }
 
 model Company {

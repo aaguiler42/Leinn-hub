@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const { clerkId } = await body;
+  const { clerkId, name, email, gender } = await body;
 
   if (!clerkId || typeof clerkId !== "string") {
     return NextResponse.json(
@@ -38,6 +38,9 @@ export async function POST(request: NextRequest) {
   const user = await prisma.user.create({
     data: {
       clerkId,
+      name,
+      email,
+      gender
     },
   });
 

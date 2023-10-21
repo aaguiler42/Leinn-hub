@@ -43,7 +43,7 @@ const Sidebar = () => {
               })}
             </div>
               { isSignedIn 
-                ? <UserButton afterSignOutUrl="/"/>
+                ? <UserButton afterSignOutUrl="/" />
                 : <SignInButton
                     mode="modal"
                     afterSignUpUrl="/"

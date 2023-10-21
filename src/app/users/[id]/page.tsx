@@ -1,5 +1,7 @@
 import prisma from "@/lib/prisma";
 import Chart from "@/app/components/Chart"
+import styles from "./page.module.css";
+import { GrMail } from 'react-icons/gr';
 
 export default async function Page({
   params,
@@ -9,7 +11,7 @@ export default async function Page({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const user = await prisma.user.findFirst()
-  const deffaultSkills = [
+  const defaultSkills = [
     'Frontend',
     'Diseño Gráfico',
     'Trabajo en Equipo',
@@ -39,59 +41,36 @@ export default async function Page({
     'Inteligencia Emocional',
   ]
 
-  const skills = deffaultSkills.sort((a, b) => Math.random() - 0.5).slice(0, 5)
+  const skills = defaultSkills.sort((a, b) => Math.random() - 0.5).slice(0, 3)
 
   return <div>
     {/* Header */}
-    <div style={{
-      display: "flex",
-      flexDirection: "row",
-    }}>
-      <img src={user?.imageUrl as string} alt="Profile Picture" />
-      <div>
+    <div className={styles.header}>
+      <img className={styles.profilePic} src={user?.imageUrl as string} alt="Profile Picture" />
+      <div className={styles.infosBox}>
         <h1>{user?.name}</h1>
-        <p>{user?.email}</p>
-      </div>
-      <div>
-        EMAIL BUTTON
-      </div>
-    </div>
-    {/* Body */}
-    <div style={{
-      display: "flex",
-      flexDirection: "row",
-    }}>
-      <div>
-        <h2>Skills</h2>
-        <div style={{
-          display: "flex",
-          flexDirection: "row",
-        }}>
+        <div className={styles.mail}>
+          <GrMail />
+          <p>{user?.email}</p>
+        </div>
+        <div className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
           {skills.map(skill => {
               return (<div key={skill}>
                 {skill} 
-                {/* TODO: DEJAR BONITO */}
               </div>)
               }
             )}
         </div>
-        <h2>Descripcion</h2>
+      </div>
+    </div>
+    {/* Body */}
+    <div className={styles.body}>
+      <div>
+        <h2>Análisis del perfil</h2>
         <div>
           Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
           Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-          Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
-        </div>
+          Lorem ipsum dolor sit am et, consectetur adipiscing elit. </div>
       </div>
       <div>
         TELA DE ARANA

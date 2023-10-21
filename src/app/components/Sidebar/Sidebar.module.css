@@ -1,0 +1,41 @@
+/* styles/Sidebar.module.css */
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    transition: left 0.3s ease-in-out;
+  }
+  
+  .burgermenu {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    flex-direction: column;
+  }
+  
+  .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    margin: 3px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+  
+    .burger-menu {
+      display: flex;
+    }
+  }
+  
+  .bg {
+    background: white;
+  }

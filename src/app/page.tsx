@@ -30,6 +30,7 @@ export default async function Home() {
         <StatCharts stats={stats} />
       </div>
       <div>text</div>
+      <CompaniesList companies={companies} />
     </div>
   );
 }

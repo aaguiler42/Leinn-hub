@@ -1,32 +1,32 @@
-'use client'
+"use client";
 
-import Image from "next/image"
-import { Company } from "../../types/Company"
-import styles from './index.module.css'
-import { useState } from "react"
+import { CompanyContributing } from "../../types/Company";
+import styles from "./index.module.css";
 
 export default function CompaniesList({
-  companies
+  companies,
 }: {
-  companies: Array<Company>
+  companies: Array<CompanyContributing>;
 }) {
-  const [selectedCompany, setSelectedCompany] = useState<string | null>(null)
-
   return (
-    <div>
-      {selectedCompany ?? 'No company selected'}
+    <div
+      style={{
+        position: "absolute",
+        background: "white",
+        left: "50%",
+      }}
+    >
       <div className={styles.list}>
-        {companies.map(c => {
-          const { name, logo } = c
+        {companies.map((c) => {
+          const { name, logo } = c;
           return (
-            <div className={styles.company} key={name}  onClick={() => setSelectedCompany(name)}>
+            <div className={styles.company} key={name}>
               {name}
-              {logo && <img src={logo} />}
+              {<img src={"/Untitled.png"} />}
             </div>
-          )
+          );
         })}
       </div>
     </div>
-
-  )
+  );
 }

@@ -1,0 +1,81 @@
+.field {
+
+  position: relative;
+
+  width: 100%;
+  height: 6rem;
+}
+
+.label {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #fff;
+  padding: 0 0.8rem;
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(-0.5rem, -0.8rem) scale(0.8);
+  pointer-events: none;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  color: #808080;
+}
+
+.input {
+  border: 1px solid #ccc;
+  padding: 0.8rem 1.3rem;
+  width: 100%;
+  border-radius: 10px;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #808080;
+}
+
+.input:placeholder-shown + .label {
+  transform: translateY(0.8rem);
+}
+
+.input:focus + .label {
+  color: #808080;
+  transform: translate(-0.5rem, -0.8rem) scale(0.8);
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.inputError {
+  border-color: #f44336 !important;
+}
+
+.inputError + .label {
+  color: #f44336;
+}
+
+.inputError:focus + .label {
+  color: #f44336 !important;
+}
+
+.inputValid:focus + .label {
+  color: #808080 !important;
+}
+
+.error {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  margin-left: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+}

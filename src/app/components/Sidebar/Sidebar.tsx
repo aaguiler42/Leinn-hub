@@ -6,11 +6,12 @@ import styles from './Sidebar.module.css'
 import { SidebarLinks } from './Links';
 import { IconContext } from 'react-icons';
 import { FaBars } from 'react-icons/fa';
+import { AiOutlineClose } from 'react-icons/ai';
 import Link from 'next/link';
 
 const Sidebar = () => {
   const { isSignedIn } = useAuth();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -18,17 +19,14 @@ const Sidebar = () => {
 
   return (
     <div>
-      <div className='burger'>
-        <Link href='#'>
-          <FaBars onClick={setIsSidebarOpen} />
-        </Link>
-      </div>
+        <nav className={`${styles.navbar} ${isSidebarOpen ? styles.navbarOpen : styles.navbarClosed}`}>
+            {isSidebarOpen 
+            ? <AiOutlineClose onClick={toggleSidebar}/> 
+            : <FaBars onClick={toggleSidebar}/> }
+        </nav>
       <div className={styles.content}>
-        <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
+        <div className={styles.sidebar}>
           <div className={styles.logo}>
-            <Link href='#' className='closeSidebar'>
-              x
-            </Link>
             LEINN Hub
           </div>
           <div>
@@ -44,6 +42,15 @@ const Sidebar = () => {
                 );
               })}
             </div>
+              { isSignedIn 
+                ? <UserButton afterSignOutUrl="/"/>
+                : <SignInButton
+                    mode="modal"
+                    afterSignUpUrl="/"
+                  >
+                    Login
+                  </SignInButton>
+              }
           </div>
         </div>
       </div>

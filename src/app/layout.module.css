@@ -1,0 +1,16 @@
+.centralBlock {
+    background-color: red;
+    height: 100vh;
+    margin-top: 60px;
+  }
+
+  @media (min-width: 768px) {
+    .centralBlock {
+        margin-left: 250px;
+    }
+
+  }
+
+  .container {
+    display: flex;
+  }

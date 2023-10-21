@@ -1,8 +1,5 @@
-import Link from "next/link";
-import styles from "./page.module.css";
 import CompaniesList from "./components/CompaniesList";
-import { Company } from "./types/Company";
-import Counter from "./components/Counter";
+import { CompanyContributing } from "./types/Company";
 import Sidebar from "./components/Sidebar/Sidebar";
 import prisma from "@/lib/prisma";
 
@@ -10,7 +7,6 @@ import { auth } from "@clerk/nextjs";
 import StatCharts from "./components/Chart";
 
 export default async function Home() {
-  const companies = await prisma.company.findMany();
   const { userId } = auth();
 
   const stats: any = userId
@@ -22,6 +18,7 @@ export default async function Home() {
         })
       )?.stats ?? null
     : null;
+  const companies = await getCompanies();
 
   return (
     <div>
@@ -33,4 +30,31 @@ export default async function Home() {
       <CompaniesList companies={companies} />
     </div>
   );
+}
+
+async function getCompanies(): Promise<CompanyContributing[]> {
+  const companies = await prisma.company.findMany({
+    include: {
+      contributions: {
+        select: {
+          amount: true,
+        },
+      },
+    },
+  });
+
+  const companiesWithContributions = companies.map((company) => {
+    const totalContributions = company.contributions.reduce(
+      (acc, contribution) => acc + contribution.amount,
+      0
+    );
+
+    return {
+      id: company.id,
+      name: company.name,
+      contribution: totalContributions,
+    };
+  });
+
+  return companiesWithContributions;
 }

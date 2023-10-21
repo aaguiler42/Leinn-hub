@@ -5,9 +5,10 @@ import { Company } from "./types/Company";
 import Counter from "./components/Counter";
 import Sidebar from "./components/Sidebar/Sidebar";
 import prisma from "@/lib/prisma";
-
 import { auth } from "@clerk/nextjs";
 import StatCharts from "./components/Chart";
+import Crowdfunding from "./components/Crowdfunding/Crowfounding";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 export default async function Home() {
   const companies = await prisma.company.findMany();
@@ -23,13 +24,14 @@ export default async function Home() {
       )?.stats ?? null
     : null;
 
+    console.log("test");
+
   return (
     <div>
-      <Sidebar />
+      <Dashboard />
       <div>
-        <StatCharts stats={stats} />
+        {/* <StatCharts stats={stats} /> */}
       </div>
-      <div>text</div>
     </div>
   );
 }

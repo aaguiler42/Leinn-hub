@@ -1,0 +1,45 @@
+.field {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+}
+
+.label {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: .5rem;
+  background-color: #fff;
+  padding: 0 .8rem;
+  transition: transform 150ms cubic-bezier(0.4,0,0.2,1);
+  transform: translate(-.5rem, -.8rem) scale(.8);
+  pointer-events: none;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  color: #808080;
+}
+
+.field input:placeholder-shown + .label {
+  transform: translateY(.8rem);
+}
+
+.field input:focus + .label {
+  color: #808080;
+  transform: translate(-.5rem, -.8rem) scale(.8);
+}
+
+.field input::placeholder {
+  color: transparent;
+}
+
+
+.error {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  margin-left: .8rem;
+  display: flex;
+  gap: 0.5rem;
+}

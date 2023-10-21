@@ -30,7 +30,13 @@ export default async function Users() {
               {user.name} <span className={styles.badge}>98</span>
               {!accepted && (
                 <form action={update} className={styles.actions}>
-                  <input type="text" name="user" value={user.id} hidden />
+                  <input
+                    type="text"
+                    name="user"
+                    value={user.id}
+                    readOnly
+                    hidden
+                  />
                   <button className={styles.button}>
                     <BsCheckCircle size={20} />
                   </button>

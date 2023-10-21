@@ -1,0 +1,25 @@
+.centralBlock {
+    background-color: white;
+    border-radius: 10px;
+    height: 100vh;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  @media (min-width: 768px) {
+    .centralBlock {
+        margin-left: 260px;
+    }
+
+  }
+
+  @media (max-width: 768px) {
+    .centralBlock {
+        margin-top: 70px;
+    }
+
+  }
+
+  

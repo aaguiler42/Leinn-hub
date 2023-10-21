@@ -19,10 +19,10 @@ model User {
   id       Int       @id @default(autoincrement())
   clerkId  String    @unique
   State    UserState @default(Unaccepted)
-  name     String
+  name     String    @default("Default Name")
   email    String    @unique
-  gender   String
   stats    Json?
+  imageUrl String?
 }
 
 model Company {

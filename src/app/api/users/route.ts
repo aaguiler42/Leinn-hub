@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const { clerkId, name, email, gender } = await body;
+  const { clerkId, name, email, imageUrl } = await body;
 
   if (!clerkId || typeof clerkId !== "string") {
     return NextResponse.json(
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       clerkId,
       name,
       email,
-      gender
+      imageUrl
     },
   });
 

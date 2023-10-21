@@ -1,0 +1,50 @@
+.field {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input {
+  cursor: pointer;
+  height: 1.3em;
+  width: 1.3em;
+  accent-color: #000;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.label {
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 24px;
+  color: #92929D;
+}
+
+.label svg {
+  display: inline-block;
+  transform: translateY(4px);
+  margin-left: 6px;
+}
+
+.inputError {
+  border-color: #f44336 !important;
+}
+
+.inputError + .label {
+  color: #f44336;
+}
+
+.inputValid {
+  border-color: #0BAB7C !important;
+}
+
+.error {
+  color: #f44336;
+  display: flex;
+  gap: 0.5rem;
+}

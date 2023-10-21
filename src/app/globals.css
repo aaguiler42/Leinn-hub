@@ -9,6 +9,7 @@
   
 
   --primary: #ee7bbc;
+  --primary-light: rgb(238,123, 188, 0.5);
   --primary-dark: #C25090;
   --secondary: #beaad5;
   --secondary-dark: #9b7eba;
@@ -49,3 +50,6 @@ a {
   padding-top: 10px;
 }
 
+.container {
+  background-color: var(--light);
+}

@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import styles from './ProgressBar.module.css'
 
-export default function ProgressBar ({ progress, total, className, ...props }) {
+export default function ProgressBar ({ progress, total, className = '', ...props }) {
   const classNames = clsx({
     [styles.total]: true,
     [className]: className

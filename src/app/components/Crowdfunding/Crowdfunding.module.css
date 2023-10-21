@@ -1,0 +1,14 @@
+.progress {
+    margin-bottom: 20px;
+  }
+
+  .text{
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--dark);
+    padding-bottom: 10px;
+  }
+
+  .box {
+    text-align: center;
+}

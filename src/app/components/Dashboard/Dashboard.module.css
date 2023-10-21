@@ -1,0 +1,37 @@
+.block {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .crowdfunding {
+    height: 20vh;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark);
+    padding-bottom: 10px;
+  }
+
+  .titleBox {
+    text-align: center;
+}
+
+  @media (min-width: 768px) {
+    .block {
+        margin-left: 260px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .block {
+        margin-top: 70px;
+    }
+  }
+
+  

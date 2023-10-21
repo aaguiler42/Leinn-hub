@@ -22,7 +22,7 @@ model User {
   name     String    @default("Default Name")
   email    String    @unique
   stats    Json?
-  imageUrl String?
+  imageUrl String   @default("/images/default-user.png")
 }
 
 model Company {

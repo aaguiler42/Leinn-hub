@@ -57,7 +57,7 @@
 
 .navText a:hover {
   background-color: var(--primary);
-  color: var(--light);
+  color: var(white);
 }
 
 .navMenuItems {
@@ -81,7 +81,7 @@
   .navbar {
     width: 100vw;
     display: flex;
-    background-color: var(--light);
+    background-color: white;
     position: fixed;
     top: 0;
     left: 0px;

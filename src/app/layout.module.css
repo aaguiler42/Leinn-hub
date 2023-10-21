@@ -1,16 +1,29 @@
 .centralBlock {
-    background-color: red;
+    background-color: white;
+    border-radius: 10px;
     height: 100vh;
-    margin-top: 60px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .container {
+    background-color: var(--light);
   }
 
   @media (min-width: 768px) {
     .centralBlock {
-        margin-left: 250px;
+        margin-left: 260px;
     }
 
   }
 
-  .container {
-    display: flex;
+  @media (max-width: 768px) {
+    .centralBlock {
+        margin-top: 70px;
+    }
+
   }
+
+  

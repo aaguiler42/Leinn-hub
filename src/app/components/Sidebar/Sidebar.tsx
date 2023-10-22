@@ -48,7 +48,7 @@ const Sidebar = () => {
                     mode="modal"
                     afterSignUpUrl="/"
                   >
-                    Login
+                    <button className={styles.buttonSignIn}>Acceder</button>
                   </SignInButton>
               }
           </div>

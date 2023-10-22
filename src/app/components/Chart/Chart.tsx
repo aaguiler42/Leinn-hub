@@ -38,7 +38,7 @@ export const data = {
 export default function StatCharts({
   stats,
 }: {
-  stats: {
+  stats?: {
     stats: JsonValue;
   };
 }) {
@@ -73,7 +73,7 @@ export default function StatCharts({
 
   return (
     <div className={styles.sizes}>
-      <Radar data={data} />;
+      <Radar data={data} />
     </div>
   );
 }

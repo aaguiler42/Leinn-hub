@@ -8,16 +8,10 @@
 .infosBox {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
     padding: 20px
 }
-
-.header {
-    display: flex;
-    flex-direction: row;
-}
-
 
 .infosBox h1 {
     font-size: 25px;
@@ -30,18 +24,20 @@
     font-size: 15px;
     font-weight: 400;
     margin-left: 10px;
+    display: flex;
 }
 
 .mail {
     display: flex;
     align-items: center;
+    margin: 5px 0px;
 }
 
 .skillsBox {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: wrap;
-    align-items: left;
+    align-items: center;
     padding: 20px;
 }
 
@@ -53,7 +49,32 @@
     font-size: 14px;
     padding: 5px 10px;
     border-radius: 5px;
-    margin: 5px;
+    margin: 5px 5px 5px 0px;
+    align-content: center;
+
+}
+
+.picBox {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    padding: 10px;
+}
+
+@media (min-width: 600px) {
+    .infosBox {
+        align-items: flex-start;
+    }
+
+    .header {
+        display: flex;
+    }
+
+    .column {
+        padding: 15px;
+    }
 }
 
 
@@ -76,4 +97,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.chart canvas {
+    margin: auto;
 }

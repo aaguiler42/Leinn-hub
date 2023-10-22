@@ -24,49 +24,86 @@ import arrowLeftGray from "public/arrow-left-gray.webp";
 // ¿Puedes describir una ocasión en la que demostraste tu capacidad para liderar y motivar a otros hacia un objetivo común?
 const pages = [
   {
-    title: "Describe un logro del que estés particularmente orgulloso.",
+    title: "Cuestionario de selección",
+    description: (
+      <div className={styles.introduction}>
+        <p>
+          ¡Bienvenidos al cuestionario de selección de Team Labs, donde la
+          innovación y el espíritu emprendedor se encuentran con la inteligencia
+          artificial de vanguardia!
+        </p>
+
+        <p>
+          En este cuestionario, tendrás la oportunidad de demostrar tus
+          habilidades y cualidades que valoramos profundamente en un Leinner:
+          emprendimiento, proactividad y mucho más.
+        </p>
+
+        <p>
+          Pero nuestro proceso va más allá de las calificaciones. También
+          realizamos un análisis en profundidad para conocerte mejor,
+          comprendiendo tus valores y cómo encajas en la cultura de Team Labs.
+        </p>
+
+        <p>
+          ¡Es hora de comenzar esta emocionante aventura en Team Labs y
+          descubrir si tu camino se cruza con el nuestro!
+        </p>
+      </div>
+    ),
     id: "1",
-    type: "textarea",
   },
   {
-    title: "¿Qué le dirías a tu yo de hace 5 años?",
+    title: "Describe un logro del que estés particularmente orgulloso.",
     id: "2",
     type: "textarea",
   },
   {
-    title: "¿Cuál es tu visión de éxito en la vida?",
+    title: "¿Qué le dirías a tu yo de hace 5 años?",
     id: "3",
     type: "textarea",
   },
   {
-    title: "Imagina que recibes 250.000€ en este momento. ¿Qué harías?",
+    title: "¿Cuál es tu visión de éxito en la vida?",
     id: "4",
+    type: "textarea",
+  },
+  {
+    title: "Imagina que recibes 250.000€ en este momento. ¿Qué harías?",
+    id: "5",
     type: "textarea",
   },
 ];
 
 const initialValues = Object.fromEntries(
-  pages.map(({ id, type, defaultValue }) => {
-    if (defaultValue) {
-      return [id, defaultValue];
-    }
-    const value =
-      type === "radio"
-        ? []
-        : type === "multiselect"
-        ? []
-        : type === "number"
-        ? 0
-        : "";
-    return [id, value];
-  })
+  pages
+    .filter((p) => p.type)
+    .map(({ id, type, defaultValue }) => {
+      if (defaultValue) {
+        return [id, defaultValue];
+      }
+      const value =
+        type === "radio"
+          ? []
+          : type === "multiselect"
+          ? []
+          : type === "number"
+          ? 0
+          : "";
+      return [id, value];
+    })
 );
 
 const validationSchema = Yup.object().shape(
   Object.fromEntries(
-    pages.map(({ id }) => {
-      return [id, Yup.string().required("Por favor, completa esta pregunta.")];
-    })
+    pages
+      .filter((p) => p.type)
+      .map(({ id }) => {
+        return [
+          id,
+          Yup.string().required("Por favor, completa esta pregunta."),
+        ];
+      })
   )
 );
 
@@ -157,8 +194,11 @@ export default function OnboardingForm() {
                 index
               ) => {
                 const disabled =
-                  errors[id] ||
-                  (type === "select" ? values[id] === "" : !values[id].length);
+                  type &&
+                  (errors[id] ||
+                    (type === "select"
+                      ? values[id] === ""
+                      : !values[id].length));
 
                 return (
                   <Pagination.Page
@@ -175,14 +215,16 @@ export default function OnboardingForm() {
                       {description && (
                         <div className={styles.description}>{description}</div>
                       )}
-                      <div className={styles.field}>
-                        <Form.Field
-                          name={id}
-                          id={id}
-                          type={type}
-                          options={options}
-                        />
-                      </div>
+                      {type && (
+                        <div className={styles.field}>
+                          <Form.Field
+                            name={id}
+                            id={id}
+                            type={type}
+                            options={options}
+                          />
+                        </div>
+                      )}
                     </div>
                     <div className={styles.footer}>
                       <Pagination.Change>

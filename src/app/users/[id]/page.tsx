@@ -2,6 +2,7 @@ import prisma from "@/lib/prisma";
 import Chart from "@/app/components/Chart/Chart"
 import styles from "./page.module.css";
 import { GrMail } from 'react-icons/gr';
+import clsx from "clsx";
 
 export default async function Page({
   params,
@@ -46,8 +47,10 @@ export default async function Page({
   return <div>
     {/* Header */}
     <div className={styles.header}>
-      <img className={styles.profilePic} src={user?.imageUrl as string} alt="Profile Picture" />
-      <div className={styles.infosBox}>
+      <div className={styles.picBox}>
+        <img className={styles.profilePic} src={user?.imageUrl as string} alt="Profile Picture" />
+      </div>
+      <div className={ styles.infosBox}>
         <h1>{user?.name}</h1>
         <div className={styles.mail}>
           <GrMail />

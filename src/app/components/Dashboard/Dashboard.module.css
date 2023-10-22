@@ -1,22 +1,21 @@
 .block {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark);
+  padding-bottom: 10px;
+}
 
-  .title {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--dark);
-    padding-bottom: 10px;
-  }
-
-  .titleBox {
-    text-align: center;
+.titleBox {
+  text-align: center;
 }
 
 .donationsBoxes {
@@ -29,151 +28,155 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-  @media (min-width: 768px) {
-    .donateBox {
-        margin-left: 260px;
-    }
-
-    .crowdfundingBox {
-      margin-left: 260px;
+@media (min-width: 768px) {
+  .donateBox {
+    margin-left: 260px;
   }
 
-    .statsBox {
-      padding: 0 60px;
-    }
-
-    
+  .crowdfundingBox {
+    margin-left: 260px;
   }
 
-  @media (max-width: 768px) {
-    .crowdfundingBox {
-        margin-top: 70px;
-    }
+  .statsBox {
+    padding: 0 60px;
+  }
+}
 
-    .textValue {
-      display: none;
-    }
-
-    .numTxt {
-      font: 500 2rem'Roboto', sans-serif !important;
-      color: var(--dark)
-    }
-
+@media (max-width: 768px) {
+  .crowdfundingBox {
+    margin-top: 70px;
   }
 
-  .contributionsBox {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-  }
-  
-  .contributions,
-  .contributions * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .contributions li {
-    display: flex;
-    position: relative;
-    padding: 1rem;
-    margin-bottom: 10px;
-    border-radius: 0.5rem;
-    background-color: var(--secondary-light);
+  .donationsBoxes {
+    grid-template-columns: 1fr !important;
   }
 
-  .box {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-left: 5px;
-    align-items: center;
-  }
-
-  .amount {
-    display: flex;
-    margin-right: 5px;
-    align-items: center;
-    font: 400 1.2rem 'Roboto', sans-serif;
-  }
-  .name {
-    align-items: center;
-    font-weight: 600;
-  }
-
-  .euroIconContributions {
-    position: relative;
-    top: 3px;
-  }
-
-  .euroIcon {
-    color: var(--secondary);
-    position: relative;
-    top: 0px;
-    margin-left: 3px;
-  }
-  
-  .percentIcon {
-    color: var(--primary);
-    position: relative;
-    top: 0px;
-    margin-left: 3px;
-  }
-
-  .userIcon {
-    color: var(--third);
-    position: relative;
-    top: 0px;
-    margin-left: 3px;
+  .textValue {
+    display: none;
   }
 
   .numTxt {
-    font: 500 3rem 'Roboto', sans-serif;
-    color: var(--dark)
+    font: 500 2rem "Roboto", sans-serif !important;
+    color: var(--dark);
   }
+}
 
-  .contributions img {
-    border-radius: 50%;
-    width: 3rem;
-  }
-  
-  .actions {
-    /* position: absolute; */
-    right: 0;
-    top: 0;
-  
-    display: flex;
-    gap: 0.5rem;
-    display: inline-block;
-    padding-left: 0.5rem;
-  }
-  
-  .actions button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    color: inherit;
-  }
-  
-  .actions svg {
-    stroke: 20px;
-  }
-  
-  .statsBox {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
+.contributionsBox {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
 
-  .number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.contributions,
+.contributions * {
+  margin: 0;
+  padding: 0;
+}
+
+.contributions li {
+  display: flex;
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 0.5rem;
+  background-color: var(--secondary-light);
+}
+
+.box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-left: 5px;
+  align-items: center;
+}
+
+.amount {
+  display: flex;
+  margin-right: 5px;
+  align-items: center;
+  font: 400 1.2rem "Roboto", sans-serif;
+}
+.name {
+  align-items: center;
+  font-weight: 600;
+}
+
+.euroIconContributions {
+  position: relative;
+  top: 3px;
+}
+
+.euroIcon {
+  color: var(--secondary);
+  position: relative;
+  top: 0px;
+  margin-left: 3px;
+}
+
+.percentIcon {
+  color: var(--primary);
+  position: relative;
+  top: 0px;
+  margin-left: 3px;
+}
+
+.userIcon {
+  color: var(--third);
+  position: relative;
+  top: 0px;
+  margin-left: 3px;
+}
+
+.numTxt {
+  font: 500 3rem "Roboto", sans-serif;
+  color: var(--dark);
+}
+
+.contributions img {
+  border-radius: 50%;
+  width: 3rem;
+}
+
+.actions {
+  /* position: absolute; */
+  right: 0;
+  top: 0;
+
+  display: flex;
+  gap: 0.5rem;
+  display: inline-block;
+  padding-left: 0.5rem;
+}
+
+.actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.actions svg {
+  stroke: 20px;
+}
+
+.statsBox {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .donateBox {
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

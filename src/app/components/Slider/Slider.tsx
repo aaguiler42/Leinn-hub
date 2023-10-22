@@ -1,26 +1,34 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
-import styles from './Slider.module.css';
+import styles from "./Slider.module.css";
+import TextField from "../core/Form/TextField";
+import Button from "../core/Button";
 
 const Slider = () => {
-  const [value, setValue] = useState(50); // Initial value
-
-//   const handleChange = (event: React.ChangeEventHandler<HTMLInputElement>) => {
-//     setValue(event.);
-//   };
+  const [value, setValue] = useState("hola"); // Initial value
 
   return (
     <div className={styles.sliderContainer}>
-      <input
-        type="range"
-        min={0}
-        max={100}
+      <TextField
+        name=""
         value={value}
-        // onChange={handleChange}
-        className={styles.slider}
+        onChange={(e: any) => {
+          if (
+            (Number(e.target.value) < 0 ||
+              Number.isNaN(Number(e.target.value))) &&
+            e.target.value !== ""
+          )
+            return;
+          if (Number(e.target.value) > 10000) {
+            setValue("10000");
+            return;
+          }
+          setValue(e.target.value);
+        }}
+        label="Donación"
       />
-      <div className={styles.value}>{value}</div>
+      <Button onClick={() => setValue("")}>Contribuir</Button>
     </div>
   );
 };

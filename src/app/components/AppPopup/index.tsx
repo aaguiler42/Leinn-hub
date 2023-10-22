@@ -8,7 +8,6 @@ import { SignInButton } from "@clerk/nextjs";
 export default function AppPopup() {
   const shouldShow =
     (window.localStorage.getItem("AppPopupAccepted") ?? "false") !== "true";
-  console.log(shouldShow);
   const [showModal, setShowModal] = useState(shouldShow);
 
   const closeModal = () => {

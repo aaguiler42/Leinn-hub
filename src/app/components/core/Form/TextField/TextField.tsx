@@ -2,7 +2,6 @@ import { clsx } from "clsx";
 import AlertIcon from "../../../icons/AlertIcon";
 
 import styles from "./TextField.module.css";
-import Image from "next/image";
 
 interface TextFieldProps {
   name: string;
@@ -33,7 +32,7 @@ export default function TextField({
         className={classNames}
         id={id}
         placeholder={placeholder ?? label}
-        {...props}
+        // {...props}
       />
       {label && (
         <label htmlFor={id} className={styles.label}>

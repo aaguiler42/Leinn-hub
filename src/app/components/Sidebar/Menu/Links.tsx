@@ -1,41 +1,25 @@
-import React from 'react';
-import { FaCartPlus } from 'react-icons/fa';
+import React from "react";
+import { FaCartPlus } from "react-icons/fa";
+import { AiFillHome } from "react-icons/ai";
+import { FaUserFriends, FaBuilding } from "react-icons/fa";
 
-export const Links= [
+export const Links = [
   {
-    title: 'Home',
-    path: '/',
-    icon: <FaCartPlus />,
-    cName: 'nav-text'
+    title: "Inicio",
+    path: "/",
+    icon: <AiFillHome />,
+    cName: "nav-text",
   },
   {
-    title: 'Reports',
-    path: '/reports',
-    icon: <FaCartPlus />,
-    cName: 'nav-text'
+    title: "Leinners",
+    path: "/users",
+    icon: <FaUserFriends />,
+    cName: "nav-text",
   },
   {
-    title: 'Products',
-    path: '/products',
-    icon: <FaCartPlus />,
-    cName: 'nav-text'
+    title: "Compañías",
+    path: "/companies",
+    icon: <FaBuilding />,
+    cName: "nav-text",
   },
-  {
-    title: 'Team',
-    path: '/team',
-    icon: <FaCartPlus />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Messages',
-    path: '/messages',
-    icon: <FaCartPlus />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Support',
-    path: '/support',
-    icon: <FaCartPlus />,
-    cName: 'nav-text'
-  }
 ];

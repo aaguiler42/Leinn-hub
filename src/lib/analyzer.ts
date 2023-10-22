@@ -103,23 +103,11 @@ export async function analyzeUser(
   questions: Array<{
     data: string;
     question: string;
-  }>
-): Promise<User> {
-  const clerkUser = await currentUser();
-  const user =
-    clerkUser &&
-    (await prisma.user.findUnique({
-      where: {
-        clerkId: clerkUser.id,
-      },
-    }));
-
+  }>,
+  name: string
+) {
   // Check if the OPENAI_API_KEY is set, if not return 400
-  if (
-    !user ||
-    !process.env.OPENAI_API_KEY ||
-    process.env.OPENAI_API_KEY === ""
-  ) {
+  if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === "") {
     throw new Error();
   }
   const content = questions
@@ -129,17 +117,7 @@ export async function analyzeUser(
     })
     .join("\n\n\n");
 
-  const { skills, analysis } = await analyze(content, user.name);
-  const newUser = await prisma.user.update({
-    data: {
-      stats: skills as any,
-      State: "Unaccepted",
-      analysis,
-    },
-    where: {
-      id: user?.id,
-    },
-  });
+  const { skills, analysis } = await analyze(content, name);
 
-  return newUser;
+  return { skills, analysis };
 }

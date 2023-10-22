@@ -29,6 +29,6 @@
   }
 
   .navText a:hover {
-    background-color: var(--primary);
+    background-color: var(--secondary-light);
     color: var(white);
   }

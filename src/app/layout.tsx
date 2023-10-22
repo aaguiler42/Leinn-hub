@@ -4,6 +4,7 @@ import "./globals.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
 import styles from "./layout.module.css";
+import AppPopup from "./components/AppPopup";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <ClerkProvider>
         <body className={inter.className}>
+          <AppPopup />
           <div className={styles.container}>
             <Sidebar />
             <div>{children}</div>

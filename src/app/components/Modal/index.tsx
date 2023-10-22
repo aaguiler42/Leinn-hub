@@ -10,16 +10,17 @@ function Close(props: { onClose?: () => void }) {
 }
 
 export default function Modal(props: {
-  showX: boolean;
+  showX?: boolean;
   height?: string;
   width?: string;
   children: React.ReactNode;
+  style?: React.CSSProperties;
   onClose?: () => void;
 }) {
   return (
     <>
       <div className={styles.backdrop} onClick={props.onClose} />
-      <div className={styles.modal}>
+      <div className={styles.modal} style={props.style}>
         {props.showX && <Close onClose={props.onClose} />}
         {props.children}
       </div>

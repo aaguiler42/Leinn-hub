@@ -1,104 +1,105 @@
 .profilePic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 10px;
 }
 
 .infosBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .infosBox h1 {
-    font-size: 25px;
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
 
 .infosBox p {
-    font-size: 15px;
-    font-weight: 400;
-    margin-left: 10px;
-    display: flex;
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: 10px;
+  display: flex;
 }
 
 .mail {
-    display: flex;
-    align-items: center;
-    margin: 5px 0px;
+  display: flex;
+  align-items: center;
+  margin: 5px 0px;
 }
 
 .skillsBox {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
 }
 
 .tag {
-    display: inline-block;
-    background-color: var(--secondary-light);
-    border: 1px solid var(--secondary);
-    color: var(--dark);
-    font-size: 14px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin: 5px 5px 5px 0px;
-    align-content: center;
-
+  display: inline-block;
+  background-color: var(--secondary-light);
+  border: 1px solid var(--secondary);
+  color: var(--dark);
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 5px 5px 5px 0px;
+  align-content: center;
 }
 
 .picBox {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .column {
-    padding: 10px;
+  padding: 10px;
+}
+
+.bodyText {
+  text-align: justify;
 }
 
 @media (min-width: 600px) {
-    .infosBox {
-        align-items: flex-start;
-    }
+  .infosBox {
+    align-items: flex-start;
+  }
 
-    .header {
-        display: flex;
-    }
+  .header {
+    display: flex;
+  }
 
-    .column {
-        padding: 15px;
-    }
+  .column {
+    padding: 15px;
+  }
 }
 
-
 @media (min-width: 1200px) {
-    .body  {
-        display: flex;
-    }
-    .column {
-        padding: 20px;
-        flex: 1;
-    }
+  .body {
+    display: flex;
+  }
+  .column {
+    padding: 20px;
+    flex: 1;
+  }
 
-    .bodyText {
-        margin-bottom: 15px;
-        text-align: justify;
-    }
+  .bodyText {
+    margin-bottom: 15px;
+  }
 }
 
 .chart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .chart canvas {
-    margin: auto;
+  margin: auto;
 }

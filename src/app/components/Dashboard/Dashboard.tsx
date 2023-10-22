@@ -42,28 +42,12 @@ export default async function Dashboard() {
               <span className={styles.numTxt}>66</span>
               <FaPercent size={25} className={styles.percentIcon} />
             </div>
-<<<<<<< Updated upstream
-            <div className={styles.valuesBox}>
-              <div className={styles.number}>
-                <span className={styles.numTxt}>66</span>
-                <FaPercent size ={25} className={styles.percentIcon}/>
-              </div>
-              <div className={styles.textValue}>porcentaje alcanzado</div>
-            </div>
-            <div className={styles.valuesBox}>
-              <div className={styles.number}>
-                <span className={styles.numTxt}>91</span>
-                <FaUserAlt size ={25} className={styles.userIcon}/>
-              </div>
-              <div className={styles.textValue}>leinners financiados</div>
-=======
             <div className={styles.textValue}>porcentaje alcanzado</div>
           </div>
           <div className={styles.valuesBox}>
             <div className={styles.number}>
               <span className={styles.numTxt}>51</span>
               <FaUserAlt size={25} className={styles.userIcon} />
->>>>>>> Stashed changes
             </div>
             <div className={styles.textValue}>leinners financiados</div>
           </div>
@@ -74,7 +58,9 @@ export default async function Dashboard() {
           <div className={styles.titleBox}>
             <p className={styles.title}>¿Quieres donar? Hazlo aquí.</p>
           </div>
-          <div className={styles.sliderBox}><Slider /></div>
+          <div className={styles.sliderBox}>
+            <Slider />
+          </div>
         </div>
         <div className={clsx(styles.block, styles.contributionsBox)}>
           <div className={styles.titleBox}>

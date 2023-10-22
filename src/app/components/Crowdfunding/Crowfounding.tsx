@@ -18,9 +18,6 @@ export default function Crowdfunding() {
         "--height": "30px",
         }}
       />
-      <div className={styles.box}>
-        <p className={styles.text}>€350.000 de €500.000 recaudados hasta ahora.</p>
-      </div>
     </div>
   );
 }

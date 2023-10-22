@@ -129,7 +129,7 @@ export default function OnboardingForm({ onSubmit }) {
   };
 
   return (
-    <div className={styles.onboarding} style={{ backgroundColor: "#f9fafc" }}>
+    <div className={styles.onboarding}>
       <Form
         initialValues={initialValues}
         validationSchema={validationSchema}

@@ -23,12 +23,26 @@
     .block {
         margin-left: 260px;
     }
+
+    .statsBox {
+      padding: 0 60px;
+    }
   }
 
   @media (max-width: 768px) {
     .crowdfundingBox {
         margin-top: 70px;
     }
+
+    .textValue {
+      display: none;
+    }
+
+    .numTxt {
+      font: 500 10px 'Roboto', sans-serif;
+      color: var(--dark)
+    }
+
   }
 
   .contributionsBox {
@@ -46,45 +60,65 @@
   .contributions li {
     display: flex;
     position: relative;
-  
     padding: 1rem;
-    margin-bottom: 8px;
-    border: 1px solid #ccc;
+    margin-bottom: 10px;
     border-radius: 0.5rem;
+    background-color: var(--secondary-light);
   }
-  
-  .badge {
-    display: inline-block;
-    height: fit-content;
-    position: relative;
-  
-    margin-left: 0.3rem;
-    color: white;
-  }
-  
-  .badge::before {
-    content: "";
-    display: block;
-  
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-  
+
+  .box {
+    display: flex;
     width: 100%;
-    height: 100%;
-    padding: 0.2rem 0.3rem;
-  
-    background-color: var(--secondary-dark);
-    opacity: 0.5;
-    border-radius: 10px;
+    justify-content: space-between;
+    margin-left: 5px;
+    align-items: center;
+  }
+
+  .amount {
+    display: flex;
+    margin-right: 5px;
+    align-items: center;
+    font: 400 1.2rem 'Roboto', sans-serif;
+  }
+  .name {
+    align-items: center;
+    font-weight: 600;
+  }
+
+  .euroIconContributions {
+    position: relative;
+    top: 3px;
+  }
+
+  .euroIcon {
+    color: var(--secondary);
+    position: relative;
+    top: 0px;
+    margin-left: 3px;
   }
   
+  .percentIcon {
+    color: var(--primary);
+    position: relative;
+    top: 0px;
+    margin-left: 3px;
+  }
+
+  .userIcon {
+    color: var(--third);
+    position: relative;
+    top: 0px;
+    margin-left: 3px;
+  }
+
+  .numTxt {
+    font: 500 3rem 'Roboto', sans-serif;
+    color: var(--dark)
+  }
+
   .contributions img {
     border-radius: 50%;
     width: 3rem;
-    aspect-ratio: 1;
   }
   
   .actions {
@@ -94,10 +128,8 @@
   
     display: flex;
     gap: 0.5rem;
-  
     display: inline-block;
     padding-left: 0.5rem;
-    color: var(--secondary);
   }
   
   .actions button {
@@ -111,3 +143,15 @@
     stroke: 20px;
   }
   
+  .statsBox {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+

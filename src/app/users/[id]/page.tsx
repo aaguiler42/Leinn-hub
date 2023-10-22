@@ -3,6 +3,7 @@ import Chart from "@/app/components/Chart/Chart";
 import styles from "./page.module.css";
 import { GrMail } from "react-icons/gr";
 import clsx from "clsx";
+import { Skills } from "@/app/types/UserAnalysis";
 
 export default async function Page({
   params = { id: "1" },
@@ -86,7 +87,7 @@ export default async function Page({
         <div className={styles.column}>
           <h3>Skills graph</h3>
           <div className={styles.chart}>
-            <Chart />
+            <Chart skills={user?.stats as any as Skills} />
           </div>
         </div>
       </div>

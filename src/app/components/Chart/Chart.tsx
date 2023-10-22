@@ -1,7 +1,7 @@
 "use client";
 
+import { Skills } from "@/app/types/UserAnalysis";
 import styles from "./Chart.module.css";
-import { JsonValue } from "@prisma/client/runtime/library";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -10,6 +10,7 @@ import {
   Filler,
   Tooltip,
   Legend,
+  ChartData,
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
 
@@ -22,58 +23,70 @@ ChartJS.register(
   Legend
 );
 
-export const data = {
-  labels: ["Thing 1", "Thing 2", "Thing 3", "Thing 4", "Thing 5", "Thing 6"],
-  datasets: [
-    {
-      label: "# of Votes",
-      data: [2, 9, 3, 5, 2, 3],
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
-      borderColor: "rgba(255, 99, 132, 1)",
-      borderWidth: 1,
-    },
-  ],
+const LABELS: Record<keyof Skills, string> = {
+  leadership: "Liderazgo",
+  innovation: "Innovación",
+  enterpreneurship: "Emprendimiento",
+  teamwork: "Trabajo en equipo",
+  goodPerson: "Buena persona",
+  commitment: "Compromiso",
+  resilience: "Resilencia",
 };
 
-export default function StatCharts({
-  stats,
-}: {
-  stats?: {
-    stats: JsonValue;
-  };
-}) {
-  const keysArray = stats
-    ? Object.keys(stats)
-    : [
-        "Liderazgo",
-        "Innovación",
-        "Emprendimiento",
-        "Trabajo en equipo",
-        "Ser buena persona",
-        "Compromiso",
-        "Resilencia",
-      ];
-  const valuesArray = stats ? Object.values(stats) : [8, 9, 10, 7, 8, 8, 9];
+interface ChartDetails {
+  values: number[];
+  labels: string[];
+}
 
-  const data = {
-    labels: keysArray,
+export default function StatCharts({ skills }: { skills: Skills }) {
+  const { values, labels } = Object.entries(skills).reduce<ChartDetails>(
+    (acc, [skill, value]: [string, number]) => {
+      return {
+        values: [...acc.values, value],
+        labels: [...acc.labels, LABELS[skill as keyof Skills]],
+      };
+    },
+    { values: [], labels: [] }
+  );
+
+  const data: ChartData<"radar"> = {
+    labels: labels,
     datasets: [
       {
         label: "Puntuación",
-        data: valuesArray,
+        data: values,
         backgroundColor: "rgba(255, 99, 132, 0.2)",
         borderColor: "rgba(255, 99, 132, 1)",
         borderWidth: 1,
       },
     ],
-    options: {
-      scales: {},
-    },
   };
 
   return (
     <div className={styles.sizes}>
-      <Radar data={data} />
+      <Radar
+        data={data}
+        options={{
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            r: {
+              angleLines: {
+                display: false,
+              },
+              suggestedMin: 0,
+              suggestedMax: 10,
+              pointLabels: {},
+              ticks: {
+                display: false,
+              },
+            },
+          },
+        }}
+      />
     </div>
   );
 }

@@ -24,9 +24,10 @@ export default function ChhatAI({
     'Gestión de inventario',
   ]
 
+  const randomArea = areas[Math.floor(Math.random() * areas.length)]
   const company = decodeURIComponent(companyName)
   const defaultMessage = `
-    Hola ${company}, he visto vuestro perfil por LEINN Hub y además he visto que necesitáis ayuda con la ${areas}.
+    Hola ${company}, he visto vuestro perfil por LEINN Hub y además he visto que necesitáis ayuda con la ${randomArea}.
     Ya que mi perfil está orientado a
   `
 

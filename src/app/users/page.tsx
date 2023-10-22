@@ -68,9 +68,9 @@ export default async function Users() {
                       })}
                     </div>
                   </div>
-                  <div className={styles.buttonBox}>
+                  {/* <div className={styles.buttonBox}>
                     <button className={styles.buttonAceptar}>Aceptar</button>
-                  </div>
+                  </div> */}
                 </div>
               </li>
             </Link>

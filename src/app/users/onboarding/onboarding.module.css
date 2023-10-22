@@ -96,4 +96,10 @@
 
 .nextButton {
   width: 8rem;
+  background-color: var(--primary);
+}
+
+.nextButton::hover {
+  width: 8rem;
+  background-color: var(--primary-dark);
 }

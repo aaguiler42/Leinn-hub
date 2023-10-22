@@ -98,6 +98,7 @@ export default function AppPopup() {
               onClick={closeModal}
               style={{
                 padding: ".5rem .3rem",
+                backgroundColor: "var(--third)"
               }}
             >
               Continuar

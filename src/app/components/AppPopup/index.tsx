@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Modal from "../Modal";
 import Button from "../core/Button";
-
-const shouldShow =
-  (window.localStorage.getItem("AppPopupAccepted") ?? "false") !== "true";
-console.log(shouldShow);
+import { SignInButton } from "@clerk/nextjs";
 
 export default function AppPopup() {
+  const shouldShow =
+    (window.localStorage.getItem("AppPopupAccepted") ?? "false") !== "true";
+  console.log(shouldShow);
   const [showModal, setShowModal] = useState(shouldShow);
 
   const closeModal = () => {
@@ -93,14 +93,16 @@ export default function AppPopup() {
             marginTop: "2rem",
           }}
         >
-          <Button
-            onClick={closeModal}
-            style={{
-              padding: ".5rem .3rem",
-            }}
-          >
-            Continuar
-          </Button>
+          <SignInButton afterSignUpUrl="/users/onboarding">
+            <Button
+              onClick={closeModal}
+              style={{
+                padding: ".5rem .3rem",
+              }}
+            >
+              Continuar
+            </Button>
+          </SignInButton>
         </div>
       </div>
     </Modal>

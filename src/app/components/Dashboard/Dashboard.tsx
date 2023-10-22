@@ -3,15 +3,17 @@ import styles from "./Dashboard.module.css";
 import clsx from "clsx";
 import prisma from "@/lib/prisma";
 import { FaEuroSign, FaPercent, FaUserAlt } from "react-icons/fa";
+import Donate from "@/app/Donate/Donate";
+import Slider from "../Slider/Slider";
 
 export default async function Dashboard() {
   const contributions = await prisma.contribution.findMany({
     include: {
       company: {
         select: {
-          name: true
+          name: true,
         },
-      }
+      },
     },
     take: 5,
     orderBy: {
@@ -20,19 +22,27 @@ export default async function Dashboard() {
   });
   return (
     <div>
-      <div className={ clsx(styles.block, styles.crowdfundingBox) }>
-          <div className={styles.titleBox}>
-              <p className={styles.title}>¡Áyudanos a alcanzar nuestra meta y cambiar vidas!</p>
-          </div>
-          <Crowdfunding />
-          <div className={styles.statsBox}>
-            <div className={styles.valuesBox}>
-              <div className={styles.number}>
-                <span className={styles.numTxt}>350m</span>
-                <FaEuroSign size ={25} className={styles.euroIcon}/>
-              </div>
-              <div className={styles.textValue}>recaudados de €500.000</div>
+      <div className={clsx(styles.block, styles.crowdfundingBox)}>
+        <div className={styles.titleBox}>
+          <p className={styles.title}>
+            ¡Áyudanos a alcanzar nuestra meta y cambiar vidas!
+          </p>
+        </div>
+        <Crowdfunding />
+        <div className={styles.statsBox}>
+          <div className={styles.valuesBox}>
+            <div className={styles.number}>
+              <span className={styles.numTxt}>350m</span>
+              <FaEuroSign size={25} className={styles.euroIcon} />
             </div>
+            <div className={styles.textValue}>recaudados de €500.000</div>
+          </div>
+          <div className={styles.valuesBox}>
+            <div className={styles.number}>
+              <span className={styles.numTxt}>66</span>
+              <FaPercent size={25} className={styles.percentIcon} />
+            </div>
+<<<<<<< Updated upstream
             <div className={styles.valuesBox}>
               <div className={styles.number}>
                 <span className={styles.numTxt}>66</span>
@@ -42,36 +52,57 @@ export default async function Dashboard() {
             </div>
             <div className={styles.valuesBox}>
               <div className={styles.number}>
-                <span className={styles.numTxt}>66</span>
+                <span className={styles.numTxt}>91</span>
                 <FaUserAlt size ={25} className={styles.userIcon}/>
               </div>
               <div className={styles.textValue}>leinners financiados</div>
+=======
+            <div className={styles.textValue}>porcentaje alcanzado</div>
+          </div>
+          <div className={styles.valuesBox}>
+            <div className={styles.number}>
+              <span className={styles.numTxt}>51</span>
+              <FaUserAlt size={25} className={styles.userIcon} />
+>>>>>>> Stashed changes
             </div>
+            <div className={styles.textValue}>leinners financiados</div>
+          </div>
         </div>
       </div>
-      <div className={ clsx(styles.block, styles.contributionsBox) }>
-        <div className={styles.titleBox}>
-            <p className={styles.title}>Últimas contribuciones</p>
+      <div className={styles.donationsBoxes}>
+        <div className={clsx(styles.block, styles.donateBox)}>
+          <div className={styles.titleBox}>
+            <p className={styles.title}>¿Quieres donar? Hazlo aquí.</p>
+          </div>
+          <div className={styles.sliderBox}><Slider /></div>
         </div>
-        <ul className={styles.contributions}>
-        {contributions.map((contribution) => {
-          return (
-            <li key={contribution.id}>
-              <div className={styles.box}>
-                <div className={styles.name}>{contribution.company.name}</div>
-                <div className={styles.amount}>
-                  <div>
-                    <FaEuroSign size ={25} className={styles.euroIconContributions}/>
+        <div className={clsx(styles.block, styles.contributionsBox)}>
+          <div className={styles.titleBox}>
+            <p className={styles.title}>Últimas contribuciones</p>
+          </div>
+          <ul className={styles.contributions}>
+            {contributions.map((contribution) => {
+              return (
+                <li key={contribution.id}>
+                  <div className={styles.box}>
+                    <div className={styles.name}>
+                      {contribution.company.name}
+                    </div>
+                    <div className={styles.amount}>
+                      <div>
+                        <FaEuroSign
+                          size={25}
+                          className={styles.euroIconContributions}
+                        />
+                      </div>
+                      <div>{contribution.amount}</div>
+                    </div>
                   </div>
-                  <div>
-                    {contribution.amount}
-                  </div>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -19,14 +19,33 @@
     text-align: center;
 }
 
+.donationsBoxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sliderBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
   @media (min-width: 768px) {
-    .block {
+    .donateBox {
         margin-left: 260px;
     }
+
+    .crowdfundingBox {
+      margin-left: 260px;
+  }
 
     .statsBox {
       padding: 0 60px;
     }
+
+    
   }
 
   @media (max-width: 768px) {
@@ -155,3 +174,6 @@
     justify-content: center;
   }
 
+.donateBox {
+  height: auto;
+}

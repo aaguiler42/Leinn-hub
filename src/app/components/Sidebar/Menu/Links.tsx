@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
-import { FaUserFriends, FaBuilding } from "react-icons/fa";
+import { FaUserFriends, FaBuilding, FaEuroSign } from "react-icons/fa";
 
 export const Links = [
   {
@@ -17,9 +17,15 @@ export const Links = [
     cName: "nav-text",
   },
   {
-    title: "Compañías",
+    title: "Contribuidores",
     path: "/companies",
     icon: <FaBuilding />,
     cName: "nav-text",
   },
+  {
+    title: "Contribuciones",
+    path: "/contribuciones",
+    icon: <FaEuroSign />,
+    cName: "nav-text",
+  }
 ];

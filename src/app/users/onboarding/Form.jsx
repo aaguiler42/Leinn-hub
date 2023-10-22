@@ -11,77 +11,38 @@ import Image from "next/image";
 
 import arrowLeftGray from "public/arrow-left-gray.webp";
 
+// Describe una situación en la que tuviste que colaborar en un equipo diverso. ¿Cómo contribuiste al éxito del equipo?
+
+// ¿Cómo te aseguras de mantener una actitud positiva y ética en situaciones desafiantes? ¿Puedes proporcionar un ejemplo?
+
+// Háblame sobre un proyecto o compromiso en el que te involucraste a largo plazo. ¿Cómo mantuviste tu motivación y compromiso a lo largo del tiempo?
+
+// ¿Puedes compartir una experiencia en la que enfrentaste dificultades significativas? ¿Cómo te adaptaste y superaste esos obstáculos?
+
+// ¿Qué estrategias usas para fomentar la colaboración y el trabajo en equipo entre personas con diferentes perspectivas y habilidades?
+
+// ¿Puedes describir una ocasión en la que demostraste tu capacidad para liderar y motivar a otros hacia un objetivo común?
 const pages = [
   {
-    title: "¿Cuál es tu fecha de nacimiento?",
-    id: "birthdate",
-    type: "date",
-    validation: Yup.date().required(
-      "Por favor, introduce tu fecha de nacimiento"
-    ),
-    defaultValue: "",
+    title: "Describe un logro del que estés particularmente orgulloso.",
+    id: "1",
+    type: "textarea",
   },
-  // {
-  //   title: "¿Con qué género te identificas?",
-  //   id: "gender",
-  //   type: "select",
-  //   options: gender,
-  //   defaultValue: "",
-  // },
-  // {
-  //   title: "¿En qué país vives?",
-  //   id: "country",
-  //   type: "select",
-  //   options: countries,
-  //   defaultValue: "",
-  // },
-  // {
-  //   title: "¿En qué ciudad?",
-  //   id: "city",
-  //   type: "text",
-  //   validation: Yup.string().required("Por favor, introduce tu ciudad"),
-  //   defaultValue: "",
-  // },
-  // {
-  //   title:
-  //     "¿Cuál es tu nivel de estudios actual o tu nivel de estudios más alto?",
-  //   description:
-  //     "Cuéntanos qué estás estudiando o cuál es el nivel de estudios más alto completado.",
-  //   id: "studyLevel",
-  //   type: "select",
-  //   options: studies,
-  //   defaultValue: "",
-  // },
-  // {
-  //   title: "¿Qué grado o estudios estás cursando o has cursado?",
-  //   id: "major",
-  //   type: "multiselect",
-  //   options: degrees,
-  //   defaultValue: "",
-  // },
-  // {
-  //   title: "¿En qué institución educativa o universidad estudias o estudiaste?",
-  //   description: "Si no lo encuentras, selecciona 'otro'",
-  //   id: "university",
-  //   type: "select",
-  //   options: universities,
-  //   defaultValue: "",
-  // },
-  // {
-  //   title: "¿En qué curso estás?",
-  //   id: "graduated",
-  //   type: "select",
-  //   options: graduated,
-  //   defaultValue: "",
-  // },
-  // {
-  //   title: "¿Qué idiomas hablas?",
-  //   description: "Selecciona todas las opciones que correspondan.",
-  //   id: "languages",
-  //   type: "multiselect",
-  //   options: languages,
-  //   defaultValue: "",
-  // },
+  {
+    title: "¿Qué le dirías a tu yo de hace 5 años?",
+    id: "2",
+    type: "textarea",
+  },
+  {
+    title: "¿Cuál es tu visión de éxito en la vida?",
+    id: "3",
+    type: "textarea",
+  },
+  {
+    title: "Imagina que recibes 250.000€ en este momento. ¿Qué harías?",
+    id: "4",
+    type: "textarea",
+  },
 ];
 
 const initialValues = Object.fromEntries(
@@ -103,58 +64,39 @@ const initialValues = Object.fromEntries(
 
 const validationSchema = Yup.object().shape(
   Object.fromEntries(
-    pages.map(({ id, type, validation }) => {
-      if (validation) {
-        return [id, validation];
-      }
-
-      if (type === "select") {
-        return [id, Yup.object()];
-      }
-
-      if (type === "multiselect") {
-        return [id, Yup.array()];
-      }
-
-      return [id, Yup.string().required("Required")];
+    pages.map(({ id }) => {
+      return [id, Yup.string().required("Por favor, completa esta pregunta.")];
     })
   )
 );
 
-export default function OnobardingForm() {
-  // const router = useRouter();
-  // const { student, setStudent } = useStudent();
-
+export default function OnboardingForm() {
   const handleSubmit = async (values) => {
-    const formattedValues = Object.fromEntries(
-      Object.entries(values).map(([key, value]) => {
-        if (key === "birthdate") {
-          const [year, month, day] = value.split("-");
-          return [key, new Date(year, month - 1, day)];
-        }
+    const formattedValues = Object.entries(values).map(
+      ([key, value], index) => {
         if (Array.isArray(value)) {
           return [key, value.map((v) => v.label)];
         }
         if (typeof value === "object") {
           return [key, value.label];
         }
-        return [key, value];
-      })
+        return {
+          data: value,
+          id: key,
+          question: pages[index].title,
+        };
+      }
     );
-    // await fetcher(`/api/students/${student.id}`, {
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ ...formattedValues, onboardingCompleted: true }),
-    // })
-    //   .then((res) => res.json())
-    //   .then(({ data: user }) => {
-    //     setStudent((oldStudent) => ({ ...oldStudent, ...user }));
-    //     router.query.page
-    //       ? router.replace(router.query.page)
-    //       : router.replace("/");
-    //   });
+
+    await fetch("/api/onboarding", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formattedValues),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (
@@ -201,8 +143,8 @@ export default function OnobardingForm() {
                     progress={page}
                     total={pages.length}
                     style={{
-                      "--colorPrimary": "#E4FF3D",
-                      "--colorSecondary": "rgba(228, 255, 61, 0.2)",
+                      "--colorPrimary": "var(--secondary)",
+                      "--colorSecondary": "var(--secondary-light)",
                       "--height": "20px",
                     }}
                   />
@@ -222,7 +164,9 @@ export default function OnobardingForm() {
                   <Pagination.Page
                     pageNumber={index + 1}
                     key={id}
-                    canEnter={!disabled && index < pages.length}
+                    canEnter={
+                      !disabled && index < pages.length && type !== "textarea"
+                    }
                     onLastPage={submitForm}
                     numberOfPages={pages.length}
                   >

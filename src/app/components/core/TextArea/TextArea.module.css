@@ -1,0 +1,19 @@
+.textArea {
+  width: 100%;
+  resize: none;
+  /* padding-bottom: 0.5rem; */
+  /* min-height: 1rem; */
+  overflow-y: hidden;
+
+  background: none;
+  color: var(--text-color-alt);
+  border: none;
+
+  font-family: inherit;
+}
+
+.textArea:hover,
+.textArea:focus {
+  outline: none;
+  border-bottom: 1px solid var(--text-color-alt);
+}

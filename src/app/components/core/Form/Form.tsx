@@ -17,6 +17,7 @@ import SelectField from "./SelectField";
 import { FieldProps } from "./Form.types";
 import CheckboxField from "./CheckboxField/CheckboxField";
 import TextEditorField from "./TextEditorField";
+import TextAreaField from "./TextAreaField";
 
 type value = string | number | boolean | Date;
 
@@ -83,6 +84,20 @@ const FormField = ({ name, label, type = "text", id, ...props }: any) => {
               touched={form.touched[field.name]}
               onChange={handleChange}
               isMulti={type === "multiselect"}
+            />
+          );
+        }
+
+        if (type === "textarea") {
+          return (
+            <TextAreaField
+              {...props}
+              {...field}
+              id={inputId}
+              error={form.errors[field.name]}
+              touched={form.touched[field.name]}
+              label={label}
+              // expandable
             />
           );
         }

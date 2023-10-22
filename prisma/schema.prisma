@@ -11,6 +11,7 @@ datasource db {
 }
 
 enum UserState {
+  NotOnboarded
   Unaccepted
   Accepted
 }
@@ -18,11 +19,12 @@ enum UserState {
 model User {
   id       Int       @id @default(autoincrement())
   clerkId  String    @unique
-  State    UserState @default(Unaccepted)
+  State    UserState @default(NotOnboarded)
   name     String    @default("Default Name")
   email    String    @unique
   stats    Json?
   imageUrl String   @default("/images/default-user.png")
+  analysis String @default("Análisis del perfil no disponible.")
 }
 
 model Company {

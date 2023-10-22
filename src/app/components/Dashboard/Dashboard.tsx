@@ -42,7 +42,7 @@ export default async function Dashboard() {
             </div>
             <div className={styles.valuesBox}>
               <div className={styles.number}>
-                <span className={styles.numTxt}>66</span>
+                <span className={styles.numTxt}>91</span>
                 <FaUserAlt size ={25} className={styles.userIcon}/>
               </div>
               <div className={styles.textValue}>leinners financiados</div>

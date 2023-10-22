@@ -24,14 +24,10 @@ export default async function Home() {
       )?.stats ?? null
     : null;
 
-    console.log("test");
-
   return (
     <div>
       <Dashboard />
-      <div>
-        {/* <StatCharts stats={stats} /> */}
-      </div>
+      <div>{/* <StatCharts stats={stats} /> */}</div>
     </div>
   );
 }

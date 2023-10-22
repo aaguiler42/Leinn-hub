@@ -107,7 +107,7 @@ const validationSchema = Yup.object().shape(
   )
 );
 
-export default function OnboardingForm() {
+export default function OnboardingForm({ onSubmit }) {
   const handleSubmit = async (values) => {
     const formattedValues = Object.entries(values).map(
       ([key, value], index) => {
@@ -125,15 +125,7 @@ export default function OnboardingForm() {
       }
     );
 
-    await fetch("/api/onboarding", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formattedValues),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    await onSubmit(formattedValues);
   };
 
   return (

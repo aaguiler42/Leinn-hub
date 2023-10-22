@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCartPlus } from 'react-icons/fa';
 
-export const SidebarLinks= [
+export const Links= [
   {
     title: 'Home',
     path: '/',

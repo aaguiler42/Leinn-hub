@@ -1,17 +1,13 @@
 // "use client";
-import Form from "@/app/components/core/Form";
-import Pagination from "@/app/components/core/Pagination";
-import ProgressBar from "@/app/components/core/ProgressBar";
-import Button from "@/app/components/core/Button";
-
-import * as Yup from "yup";
-
-import styles from "./onboarding.module.css";
-import Image from "next/image";
-
-import arrowLeftGray from "public/arrow-left-gray.webp";
+import { analyzeUser } from "@/lib/analyzer.ts";
 import OnboardingForm from "./Form.jsx";
+import { redirect } from "next/navigation.js";
 
 export default function Onboarding() {
-  return <OnboardingForm />;
+  async function handleSubmit(values) {
+    "use server";
+    const user = await analyzeUser(values);
+    redirect(`/users/${user.id}`);
+  }
+  return <OnboardingForm onSubmit={handleSubmit} />;
 }

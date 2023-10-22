@@ -125,7 +125,12 @@ export default function OnboardingForm({ onSubmit }) {
       }
     );
 
-    await onSubmit(formattedValues);
+    const { skills, analysis } = await fetch("/api/onboarding", {
+      method: "POST",
+      body: JSON.stringify(formattedValues),
+    }).then((res) => res.json());
+
+    await onSubmit({ skills, analysis });
   };
 
   return (

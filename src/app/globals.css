@@ -24,17 +24,6 @@
   margin: 0;
 }
 
-.cl-internal-11ewti4 {
-  width: 6rem;
-  height: 6rem;
-}
-
-@media (max-width: 768px) {
-  .cl-internal-11ewti4 {
-    width: 2rem;
-    height: 2rem;
-  }
-}
 
 html,
 body {
@@ -63,4 +52,10 @@ a {
 
 .container {
   background-color: var(--light);
+}
+
+
+.avatarBig .cl-internal-11ewti4 {
+  width: 6rem;
+  height: 6rem;
 }

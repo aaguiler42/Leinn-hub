@@ -24,7 +24,7 @@
   width: 100%;
   max-width: 80rem;
 
-  padding-inline: max(4vw, 2rem);
+  padding-inline: min(4vw, 1rem);
   padding-block: 1rem;
   margin: auto;
   background-color: #fff;

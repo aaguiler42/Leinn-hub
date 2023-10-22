@@ -29,6 +29,7 @@
   display: flex;
   justify-content: center; /* Horizontal centering */
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .topNavbar {
@@ -56,7 +57,6 @@
   margin: 10%;
   width: 80%;
   padding: 10px 0;
-  box-shadow: 0 0 20px var(--primary);
   transition: 0.4s;
 }
 
@@ -64,17 +64,43 @@
   background-color: var(--primary);
 }
 
+.avatarSmall {
+  width: 250px;
+  display: flex;
+  align-content: center;
+  justify-content: center; 
+}
+
+.avatarBig {
+  width: 250px;
+  display: flex;
+  align-content: center;
+  justify-content: center; 
+}
+
+.avatarBig .cl-internal-11ewti4 {
+  width: 6rem;
+  height: 6rem;
+}
+
+.login {
+  width: 250px;
+  display: flex;
+  align-content: center;
+  justify-content: center; 
+}
+
 @media (max-width: 768px) {
   .sidebar {
     display: none;
   }
-
+  
   .logo {
     display: flex;
     justify-content: center; /* Horizontal centering */
     align-items: center;
-  
-  }
+    margin-top: 25px
+    }
   
   .navbar {
     width: 100vw;
@@ -85,12 +111,12 @@
     padding: 20px;
     z-index: 999;
   }
-
+  
   .navbarClosed {
     display: flex;
     height: 60px;
   }
-
+  
   .navbarOpen {
     display: block;
     height: 100vh;
@@ -109,5 +135,13 @@
     width: 100%;
     padding-inline: 1rem;
     align-items: center;
+  }
+
+  .avatarBig {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center; 
+    margin-top: 2rem;
   }
 }

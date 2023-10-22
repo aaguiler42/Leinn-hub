@@ -9,7 +9,9 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import Menu from "./Menu/Menu";
-
+import Image from "next/image";
+import  darkPinkLogo from "../../../../public/images/darkPinkLogo.png";
+import clsx from "clsx";
 const Sidebar = () => {
   const { isSignedIn } = useAuth();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,6 +19,7 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
 
   return (
     <div>
@@ -33,11 +36,46 @@ const Sidebar = () => {
           )}
           <div className={styles.alignNavbar}>
             <div></div>
-            <div>LEINN Hubff</div>
-            <div style={{position: 'relative'}}>
-            <div style={{position: 'absolute', top: 0, left: 0, transform: 'translate(-50%, -50%)'}}>{isSignedIn ? (
-                <UserButton afterSignOutUrl="/" />
-              ) : (
+            <div className={styles.logo}>
+              <Image src={darkPinkLogo} alt="logo" width={180} height={50} />
+            </div>
+            <div style={{ position: "relative" }}>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                {(isSignedIn && !isSidebarOpen) && (
+                  <div className={styles.avatarSmall}><UserButton afterSignOutUrl="/" /></div>
+                ) }
+              </div>
+            </div>
+          </div>
+        </div>
+        {(isSidebarOpen && isSignedIn) && <div className={clsx(styles.avatarBig, 'avatarBig')}><UserButton afterSignOutUrl="/" /></div> }
+        {(isSidebarOpen && !isSignedIn) && 
+            <SignInButton
+              mode="modal"
+              afterSignInUrl="/"
+              afterSignUpUrl="/users/onboarding"
+            >
+              <button className={styles.buttonSignIn}>Acceder</button>
+            </SignInButton> }
+        {isSidebarOpen && <Menu />}
+      </nav>
+      <div className={styles.content}>
+        <div className={styles.sidebar}>
+          <div className={styles.logo}>
+            <Image src={darkPinkLogo} alt="logo" width={200} height={50} />
+          </div>
+          <div>
+            {isSignedIn ? 
+              <div className={clsx(styles.avatarBig, 'avatarBig')}><UserButton afterSignOutUrl="/" /></div>
+             : 
+             <div className={styles.login}>
                 <SignInButton
                   mode="modal"
                   afterSignInUrl="/"
@@ -45,28 +83,9 @@ const Sidebar = () => {
                 >
                   <button className={styles.buttonSignIn}>Acceder</button>
                 </SignInButton>
-            )}</div>
-            </div>
-          </div>
-        </div>
-        {isSidebarOpen && <Menu /> }
-      </nav>
-      <div className={styles.content}>
-        <div className={styles.sidebar}>
-          <div className={styles.logo}>LEINN Hub</div>
-          <div>
+              </div>
+            }
             <Menu />
-            {isSignedIn ? (
-              <UserButton afterSignOutUrl="/" />
-            ) : (
-              <SignInButton
-                mode="modal"
-                afterSignInUrl="/"
-                afterSignUpUrl="/users/onboarding"
-              >
-                <button className={styles.buttonSignIn}>Acceder</button>
-              </SignInButton>
-            )}
           </div>
         </div>
       </div>

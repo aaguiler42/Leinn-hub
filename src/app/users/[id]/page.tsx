@@ -87,7 +87,7 @@ export default async function Page({
         <div className={styles.column}>
           <h3>Skills graph</h3>
           <div className={styles.chart}>
-            <Chart skills={user?.stats as Skills} />
+            <Chart skills={user?.stats as any as Skills} />
           </div>
         </div>
       </div>

@@ -75,6 +75,16 @@ export default function AppPopup() {
             nuestra comunidad? No esperes más, inicia sesión y comienza tu viaje
             en la plataforma. ¡Estamos ansiosos por tenerte con nosotros!
           </p>
+          <p
+            style={{
+              marginTop: "1rem",
+              fontSize: "1.1rem",
+              fontWeight: "bold",
+            }}
+          >
+            Para disfrutar lo máximo de la demo, te recomendamos que inicies
+            sesión.
+          </p>
         </div>
         <div
           style={{

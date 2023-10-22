@@ -1,8 +1,6 @@
 import prisma from "@/lib/prisma";
 import styles from "./index.module.css";
-import { BsCheckCircle } from "react-icons/bs";
-import { revalidatePath } from "next/cache";
-import RedirectButton from "./RedirectButton";
+import ContactButton from "./ContactButton";
 
 export default async function Companies() {
   const companies = await prisma.company.findMany();
@@ -17,7 +15,7 @@ export default async function Companies() {
             <li key={company.id}>
               <div className={styles.companyImage}>{initials}</div>
               {company.name}
-              <RedirectButton companyName={company.name} />
+              <ContactButton company={company} />
             </li>
           );
         })}

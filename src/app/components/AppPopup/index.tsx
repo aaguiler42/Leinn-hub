@@ -82,8 +82,7 @@ export default function AppPopup() {
               fontWeight: "bold",
             }}
           >
-            Para disfrutar lo máximo de la demo, te recomendamos que inicies
-            sesión.
+            Para que disfrutes de la demo, necesitamos que inicies sesión.
           </p>
         </div>
         <div

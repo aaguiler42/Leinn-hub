@@ -6,7 +6,7 @@ import Counter from "./components/Counter";
 import Sidebar from "./components/Sidebar/Sidebar";
 import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs";
-import StatCharts from "./components/Chart";
+import StatCharts from "./components/Chart/Chart";
 import Crowdfunding from "./components/Crowdfunding/Crowfounding";
 import Dashboard from "./components/Dashboard/Dashboard";
 

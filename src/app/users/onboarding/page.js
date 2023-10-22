@@ -10,8 +10,8 @@ import styles from "./onboarding.module.css";
 import Image from "next/image";
 
 import arrowLeftGray from "public/arrow-left-gray.webp";
-import OnobardingForm from "./Form.jsx";
+import OnboardingForm from "./Form.jsx";
 
 export default function Onboarding() {
-  return <OnobardingForm />;
+  return <OnboardingForm />;
 }

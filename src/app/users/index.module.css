@@ -170,7 +170,7 @@
   top: 3px;
   color: var(--third)
 }
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
   .tag {
     display: flex;
     background-color: var(--secondary-light);
@@ -183,9 +183,29 @@
     align-content: center;
     justify-content: center;
   }
+
+  .buttonBox {
+    width: 100%;
+    padding: 20px;
+  }
 }
 
-@media (min-width: 600px) {
+
+
+@media (min-width: 1200px) {
+  .body {
+    display: flex;
+  }
+
+  .bodyText {
+    margin-bottom: 15px;
+  }
+
+  .buttonBox {
+    display: inline-block;
+    padding: 20px;
+  }
+
   .infosBox {
     align-items: flex-start;
   }
@@ -201,20 +221,6 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .body {
-    display: flex;
-  }
-  .column {
-    padding: 20px;
-    flex: 1;
-  }
-
-  .bodyText {
-    margin-bottom: 15px;
-  }
-}
-
 .chart {
   display: flex;
   justify-content: center;
@@ -224,3 +230,19 @@
 .chart canvas {
   margin: auto;
 }
+
+.buttonAceptar {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 10%;
+    width: 80%;
+    padding: 10px 0;
+    transition: 0.4s;
+  }
+  
+  .buttonAceptar:hover {
+    background-color: var(--third);
+
+  }

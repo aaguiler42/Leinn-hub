@@ -64,7 +64,7 @@ const Sidebar = () => {
             >
               <button className={styles.buttonSignIn}>Acceder</button>
             </SignInButton> }
-        {isSidebarOpen && <Menu />}
+        {isSidebarOpen && <Menu onNavigation={() => setIsSidebarOpen(false)} />}
       </nav>
       <div className={styles.content}>
         <div className={styles.sidebar}>
@@ -85,7 +85,7 @@ const Sidebar = () => {
                 </SignInButton>
               </div>
             }
-            <Menu />
+            <Menu onNavigation={() => setIsSidebarOpen(false)} />
           </div>
         </div>
       </div>

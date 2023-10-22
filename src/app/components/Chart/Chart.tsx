@@ -13,6 +13,7 @@ import {
   ChartData,
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
+import { LABELS } from "@/mocks/skills";
 
 ChartJS.register(
   RadialLinearScale,
@@ -22,16 +23,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-const LABELS: Record<keyof Skills, string> = {
-  leadership: "Liderazgo",
-  innovation: "Innovación",
-  enterpreneurship: "Emprendimiento",
-  teamwork: "Trabajo en equipo",
-  goodPerson: "Buena persona",
-  commitment: "Compromiso",
-  resilience: "Resilencia",
-};
 
 interface ChartDetails {
   values: number[];

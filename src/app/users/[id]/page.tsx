@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { GrMail } from "react-icons/gr";
 import clsx from "clsx";
 import { Skills } from "@/app/types/UserAnalysis";
+import { getTopSkills } from "@/lib/skills";
 
 export default async function Page({
   params = { id: "1" },
@@ -18,6 +19,10 @@ export default async function Page({
   if (!user) {
     user = await prisma.user.findFirst();
   }
+  if (!user) {
+    return <div>No user found</div>;
+  }
+
   const defaultSkills = [
     "Frontend",
     "Diseño Gráfico",
@@ -48,7 +53,7 @@ export default async function Page({
     "Inteligencia Emocional",
   ];
 
-  const skills = defaultSkills.sort((a, b) => Math.random() - 0.5).slice(0, 3);
+  const skills = getTopSkills(user);
 
   return (
     <div>

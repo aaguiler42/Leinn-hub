@@ -1,10 +1,10 @@
 {
   "functions": {
     "api/test.js": {
-      "maxDuration": 30 // This function can run for a maximum of 30 seconds
+      "maxDuration": 30
     },
     "users/*": {
-      "maxDuration": 30 // These functions can run for a maximum of 15 seconds
+      "maxDuration": 30
     }
   }
 }

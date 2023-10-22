@@ -13,6 +13,7 @@ export default function EditorAI(props: {
       defaultValue={props.defaultValue}
       completionApi="/api/chatToEmpresa"
       className={props.className}
+      disableLocalStorage={true}
     />
   </div>)
 }

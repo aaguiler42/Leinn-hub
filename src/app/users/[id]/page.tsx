@@ -90,7 +90,7 @@ export default async function Page({
           <div className={styles.bodyText}>{user?.analysis}</div>
         </div>
         <div className={styles.column}>
-          <h3>Skills graph</h3>
+          <h3>Gráfico de habilidades</h3>
           <div className={styles.chart}>
             <Chart skills={user?.stats as any as Skills} />
           </div>

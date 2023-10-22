@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import Chart from "@/app/components/Chart"
+import Chart from "@/app/components/Chart/Chart"
 import styles from "./page.module.css";
 import { GrMail } from 'react-icons/gr';
 
@@ -55,7 +55,7 @@ export default async function Page({
         </div>
         <div className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
           {skills.map(skill => {
-              return (<div key={skill}>
+              return (<div className={styles.tag} key={skill}>
                 {skill} 
               </div>)
               }
@@ -65,16 +65,20 @@ export default async function Page({
     </div>
     {/* Body */}
     <div className={styles.body}>
-      <div>
-        <h2>Análisis del perfil</h2>
-        <div>
+      <div className={styles.column} >
+        <h3>Análisis del perfil</h3>
+        <div className={styles.bodyText}>
           Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
           Lorem ipsum dolor sit am et, consectetur adipiscing elit. Nulla nec odio eget nunc porttitor luctus. 
           Lorem ipsum dolor sit am et, consectetur adipiscing elit. </div>
       </div>
-      <div>
-        TELA DE ARANA
-        <Chart />
+      <div className={styles.column} >
+        <h3>
+          Skills graph
+        </h3>
+          <div className={styles.chart}>
+            <Chart />
+          </div>
       </div>
     </div>
   </div>;

@@ -44,3 +44,36 @@
     align-items: left;
     padding: 20px;
 }
+
+.tag {
+    display: inline-block;
+    background-color: var(--secondary-light);
+    border: 1px solid var(--secondary);
+    color: var(--dark);
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+
+@media (min-width: 1200px) {
+    .body  {
+        display: flex;
+    }
+    .column {
+        padding: 20px;
+        flex: 1;
+    }
+
+    .bodyText {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+}
+
+.chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "./Chart.module.css";
 import { JsonValue } from "@prisma/client/runtime/library";
 import {
   Chart as ChartJS,
@@ -71,12 +72,7 @@ export default function StatCharts({
   };
 
   return (
-    <div
-      style={{
-        width: "700px",
-        height: "700px",
-      }}
-    >
+    <div className={styles.sizes}>
       <Radar data={data} />;
     </div>
   );

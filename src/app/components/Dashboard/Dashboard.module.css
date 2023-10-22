@@ -7,9 +7,6 @@
     margin-right: 10px;
   }
 
-  .crowdfunding {
-    height: 20vh;
-  }
 
   .title {
     font-size: 20px;
@@ -29,9 +26,88 @@
   }
 
   @media (max-width: 768px) {
-    .block {
+    .crowdfundingBox {
         margin-top: 70px;
     }
   }
 
+  .contributionsBox {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+  
+  .contributions,
+  .contributions * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contributions li {
+    display: flex;
+    position: relative;
+  
+    padding: 1rem;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+  }
+  
+  .badge {
+    display: inline-block;
+    height: fit-content;
+    position: relative;
+  
+    margin-left: 0.3rem;
+    color: white;
+  }
+  
+  .badge::before {
+    content: "";
+    display: block;
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  
+    width: 100%;
+    height: 100%;
+    padding: 0.2rem 0.3rem;
+  
+    background-color: var(--secondary-dark);
+    opacity: 0.5;
+    border-radius: 10px;
+  }
+  
+  .contributions img {
+    border-radius: 50%;
+    width: 3rem;
+    aspect-ratio: 1;
+  }
+  
+  .actions {
+    /* position: absolute; */
+    right: 0;
+    top: 0;
+  
+    display: flex;
+    gap: 0.5rem;
+  
+    display: inline-block;
+    padding-left: 0.5rem;
+    color: var(--secondary);
+  }
+  
+  .actions button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+  }
+  
+  .actions svg {
+    stroke: 20px;
+  }
   

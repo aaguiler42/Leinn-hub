@@ -1,6 +1,6 @@
 # Leinn Hub 🚀
 
-[Leinn Hub](https://leinn-hub.vercel.app/) is a project that was born during a hectic and exciting hackathon weekend with just three passionate individuals. Our mission was to create a platform that could bridge the gap between companies looking to support a scholarship fund and Leinn students. 🤝
+[Leinn Hub](https://leinn-hub.vercel.app/) is a project that was born during a hectic and exciting hackathon weekend with just four passionate individuals. Our mission was to create a platform that could bridge the gap between companies looking to support a scholarship fund and Leinn students. 🤝
 
 ## 📌 Project Overview
 
